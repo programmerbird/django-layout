@@ -77,6 +77,6 @@ See publisher/widgets.py for the example.
 
 5. Tell us what the layout name. You will have to set it in every pages you want to see the widgets.
 				{% load hibird %}
-				{% layout questlog_home %}
+				{% layout your_page_name_here %}
 		
 6. That's it. syncdb, runserver and goto http://localhost:8000/publisher/layout/ !
