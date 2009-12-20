@@ -13,6 +13,9 @@ A template widgets system for your existed django project.
 Now goto:
 http://localhost:8000/publisher/layout/
 
+Username: admin
+Password: admin
+
 
 ## How to implement the custom widget ?
 
