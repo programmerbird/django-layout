@@ -3,8 +3,7 @@
 
 A template widgets system for your existed django project.
 
-![Rearrange widgets screenshot](http://github.com/ssimasanti/django-layout/raw/master/doc/edit-page.png)
-
+![Rearrange widgets screenshot](http://github.com/ssimasanti/django-layout/raw/master/doc/edit-base.png)
 
 ## Demo
 			git clone git@github.com:ssimasanti/django-layout.git
