@@ -24,7 +24,8 @@ See publisher/widgets.py for the example.
 ## How to integrate into my existed project ?
 
 1. git clone!
-   git clone git@github.com:ssimasanti/django-layout.git
+
+				git clone git@github.com:ssimasanti/django-layout.git
 
 2. Copy the following apps/media files into your project
    - hibird/
@@ -78,4 +79,4 @@ See publisher/widgets.py for the example.
 				{% load hibird %}
 				{% layout questlog_home %}
 		
-6. That's it. syncdb and runserver!
+6. That's it. syncdb, runserver and goto http://localhost:8000/publisher/layout/ !
