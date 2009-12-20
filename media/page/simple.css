@@ -1,0 +1,17 @@
+#header-wrapper, 
+#content-wrapper, 
+#nav-wrapper, 
+#footnote-wrapper, 
+#aside-wrapper, 
+#footer-wrapper { padding: 0; } 
+#section-wrapper { margin: 0 320px 0 0 }
+#aside-wrapper { position: absolute; top: 5px; right: 5px; width: 300px }
+#page-wrapper, #page { padding: 0;}
+#header, #content, #footer { position: relative; max-width: 1160px; min-width: 800px; margin: 0 auto; padding: 0 10px } 
+#content {min-height: 400px;}
+
+#footer { position: absolute; bottom: 5px;}
+#nav ul, #nav ol { padding: 0; margin: 0; display: inline }
+#nav li { display: inline; list-style: none; font-size: 120%; font-weight: bold }
+#nav li a { padding: 10px 20px 10px 0 }
+#aside-wrapper {z-index: 9999;}

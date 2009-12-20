@@ -1,0 +1,11 @@
+body { margin: 0 5px }
+#nav-wrapper,
+#aside-wrapper,
+#header-wrapper { display: none }
+#content-wrapper, 
+#nav-wrapper, 
+#footnote-wrapper, 
+#footer-wrapper { padding: 5px 0; } 
+#content-wrapper { position: relative }
+#page {margin: 0 auto } 
+

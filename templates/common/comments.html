@@ -1,0 +1,39 @@
+{% load comments %}
+{% load hibird %}
+{% load gravatar %}
+{% load i18n %}
+{% load pagination_tags %}
+
+<div id="comments">
+
+<h3>{{ entity.total_comments }} {% trans "Comments" %}</h3>
+<div class="commentreply">
+	<div class="post">
+		{% gravatar request.user %}
+	</div>
+	<form action="{% comment_form_target %}#do=:submit|reset|~entity-comments:reload" class="ajax on-submit-action" method="POST">
+		{% get_comment_form for entity as form %}
+		{% include "common/comment-form.html" %}
+		<input type="hidden" name="next" value="{{ request.path }}" />		
+	</form>	
+</div>
+
+{% get_comment_list for entity as comments %}
+
+{% autopaginate comments 10 %}
+{% for item in comments %}
+	<div class="commentreply {% cycle odd,even %}">
+		<div class="post">
+			<a href="{{ item.url }}">
+				{% if item.owner %}{% gravatar item.owner %}{% else %}{% gravatar item.email %}{% endif %}
+			</a>
+			<h3><a href="{{ item.url }}">{{ item.name }}</a></h3> 
+			<div class="meta">{{ item.created_on|shortdate }}</div>
+		</div>
+		{{ item.comment_html|safe }}
+	</div>
+{% endfor %}
+{% paginate %}
+</div>
+
+

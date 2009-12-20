@@ -1,0 +1,12 @@
+{% load i18n %}
+{% ifequal request.method "POST" %}
+<div class="errors">
+	<h4>{% trans "Ooops! We Have Problems." %}</h4>
+	
+	{% autoescape off %}
+	{% if form.non_field_errors %}
+	<p>{{ form.non_field_errors }}</p>
+	{% endif %}
+	{% endautoescape %}
+</div>
+{% endifequal %}

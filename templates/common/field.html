@@ -1,0 +1,30 @@
+{% load hibird %}
+{% if field %}
+{% if field.is_hidden %}
+	{{ field }}
+{% else %}
+	<div class="field{% if field.errors %} error{% endif %}{% if field.field.required %} required{% endif %} {{ field.html_name }}">
+		<a name="field-{{ field.html_name }}"></a>
+		{% ifnotequal field.field.widget.check_test None %}
+			{{ field }}{{ field.label_tag }}
+		{% else %}
+			<label for="{{ field.html_name }}">{{ field.label }}{% if field.field.required %}<span class="asterisk">*</span>{% endif %}</label>
+			<div class="input">
+				{{ field }}
+			</div>
+		{% endifnotequal %}
+		<div class="meta{% ifnotequal field.field.widget.check_test None %} checkbox{% endifnotequal %}">
+			{% if field.errors %}
+			<ul class="errors">
+				{% for error in field.errors %}
+					<li>{{ error|escape }}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+			{% autoescape off %}
+			{% if field.help_text %}<div class="help_text">{{ field.help_text }}</div>{% endif %}
+			{% endautoescape %}
+		</div>
+	</div>
+{% endif %}
+{% endif %}

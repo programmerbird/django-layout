@@ -1,0 +1,48 @@
+{% load comments %}
+{% load i18n %}
+<div class="comment-form">
+	{% include "common/form-error.html" %}
+	<div class="ajax on-click-title" title="#do=!guest-comment-auth:show">
+ 	{% with form.comment as field %}{% include "common/field.html" %}{% endwith %}
+ 	{% with form.message as field %}{% include "common/field.html" %}{% endwith %}
+ 	</div>
+ 	{% with form.honeypot as field %}{% include "common/field.html" %}{% endwith %}
+	{{ form.content_type }}
+	{{ form.object_pk }}
+	{{ form.timestamp }}
+	{{ form.security_hash }}
+ 	
+ 	{% if not request.user.is_authenticated %}
+ 		<div id="guest-comment-auth">
+ 		<fieldset>
+ 			<h3 class="legend">{% trans "Have an account?" %} <a href="/accounts/login?next={{ request.path }}">{% trans "sign in" %}</a></h3>
+ 			<div class="fields">
+		  		<div style="float:left; width: 250px">
+				 	{% with form.name as field %}{% include "common/field.html" %}{% endwith %}
+				 	{% with form.guest_full_name as field %}{% include "common/field.html" %}{% endwith %}
+			 	</div>
+		 		<div style="float:left">
+				 	{% with form.email as field %}{% include "common/field.html" %}{% endwith %}
+				 	{% with form.guest_email as field %}{% include "common/field.html" %}{% endwith %}
+			 	</div>
+ 			</div>
+		 	<div style="clear:both"></div>
+ 		</fieldset>
+ 		
+ 		<fieldset>
+ 			<h3 class="legend">{% trans "Word Verification" %}</h3>
+ 			<div class="fields">
+			 	{% with form.guest_captcha as field %}{% include "common/field.html" %}{% endwith %}
+			 	<div style="clear:both"></div>
+ 			</div>
+ 		</fieldset>
+ 		</div>
+ 		<script type="text/javascript" language="javascript" charset="utf-8">
+ 		// <![CDATA[
+ 			document.getElementById('guest-comment-auth').style.display='none';
+ 		// ]]>
+ 		</script>
+ 	{% endif %}
+ 	
+ 	<button type="submit" name="post" value="Post" class="big positive button">{% trans "Post" %}</button>
+</div>

@@ -1,0 +1,22 @@
+{% extends "publisher/layout/new.html" %}
+{% load hibird %}{% layout edit_layout %}
+{% load i18n %}
+{% block title %}{% trans "Edit layout" %} "{{ layout.name }}"{% endblock %}
+{% block intro %}
+<a href="{% url publisher.views.layouts %}">{% trans "Return to administration" %}</a>
+<h1>Edit {{ layout.name }}</h1>
+{% endblock %}
+{% block submit-field %}
+<div class="field submit">
+	<div class="input">
+		{% if perms.layout.delete_layout %}
+			<div style="float:right">
+			<a onclick="return confirm('Are you sure you want to remove this layout?')" href="{% url publisher.views.remove_layout layout.id %}" class="negative button">
+				{% trans "Remove" %}</a>
+			</div>
+		{% endif %}	
+		<button id="btn-submit" class="positive button" type="submit">{% trans "Save Changes" %}</button>
+	</div>
+</div>
+{% endblock %}	
+

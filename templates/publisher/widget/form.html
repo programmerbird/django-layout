@@ -1,0 +1,42 @@
+{% if form.Meta.design_template %}
+	{% include form.Meta.design_template %}
+{% else %}
+{% load i18n %}
+{% load hibird %}
+{% if form.get_help %}
+{{ form.get_help|linebreaks }}
+{% endif %}
+{% if form.label or form.initial or form.help_text %}
+<fieldset>
+	<div class="fields">
+		{% with form.label as field %}{% include "common/field.html" %}{% endwith %}
+		{% with form.initial as field %}{% include "common/field.html" %}{% endwith %}
+		{% with form.help_text as field %}{% include "common/field.html" %}{% endwith %}
+	</div>
+</fieldset>
+{% endif %}
+{% if form.name or form.required %}
+<fieldset>
+	<div class="fields">
+		<div class="limit" style="width: 70%">
+		{% with form.name as field %}{% include "common/field.html" %}{% endwith %}
+		</div>
+		<div class="limit">
+		{% with form.required as field %}{% include "common/field.html" %}{% endwith %}
+		</div>
+		<div style="clear:left"></div>
+	</div>
+</fieldset>
+{% endif %}
+<fieldset>
+	<div class="fields">
+		{% with "name label initial help_text required" as handled_fields %}
+		{% for field in form %}
+			{% if not field.name|in_list:handled_fields %}
+				{% include "common/field.html" %}
+			{% endif %}
+		{% endfor %}
+		{% endwith %}
+	</div>
+</fieldset>
+{% endif %}

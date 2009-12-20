@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load hibird %}
+{% load i18n %}
+{% block title %}{% trans "Serious Problem" %}{% endblock %}
+{% block stylesheet %}
+	<link rel="stylesheet" href="/media/questlog/desktop.min.css" />
+	{% block additional-stylesheet %}{% endblock %}
+	<!--[if lt IE 8]><script src="/media/page/IE8.js" type="text/javascript"></script><![endif]-->
+{% endblock %}
+{% block intro %}
+<h1>{% trans "500. Houston, we have a problem!" %}</h1>
+{% endblock %}
+{% block article %}
+<p>
+{% blocktrans %}
+	The page you've requested can not be displayed. 
+	It appears you've missed your intended destination, 
+	either through a bad or outdated link, or a typo in the page you were hoping to reach.
+{% endblocktrans %}
+</p>
+<p>
+	<a href="/" class="positive button">{% trans "Return to homepage" %}</a>
+</p>
+{% endblock %}

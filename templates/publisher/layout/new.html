@@ -1,0 +1,157 @@
+{% extends "publisher/layout/base.html" %}
+{% load hibird %}{% layout new_layout %}
+{% load i18n %}
+{% load page_tags %}
+{% page new_layout %}
+{% block title %}{% trans "Add layout" %}{% endblock %}
+{% block intro %}
+<a href="{% url publisher.views.layouts %}">{% trans "Return to administration" %}</a>
+<h1>{% trans "Add layout" %}</h1>
+{% endblock %}
+
+{% block additional-stylesheet %}
+<style type="text/css" media="screen">
+/* <![CDATA[ */
+#layout-containers h2,
+#layout-containers h3,
+#layout-containers h4 { padding: 4px 5px 2px; margin-bottom: 0; background: #ccc; font-size: 90% }
+ol#layout-containers { margin: 0; padding: 5px 0 }
+ul#widgets { margin: 0; padding: 0 }
+#layout-containers ol { border: 1px solid #ccc; padding: 5px; margin: 0; }
+#layout-containers ul { border: 1px solid #ccc; min-height: 20px; padding: 5px; margin: 0; background: #eee }
+#widgets li,
+#layout-containers li { list-style: none; padding: 0; margin: 0; }
+#layout-containers ul.hover { border: 1px dashed #333 }
+
+ol#layout-section,
+ul#layout-nav,
+ul#layout-aside { min-height: 190px }
+li#layout-content-wrapper ol { position: relative }
+li#layout-nav-wrapper { position: absolute; width: 190px; left: 5px; top: 5px }
+li#layout-aside-wrapper { position: absolute; width: 190px; right: 5px; top: 5px  }
+li#layout-section-wrapper { margin: 0 200px; }
+
+#widgets li.widget,
+#layout-containers li.widget { background: #ccc; color: #333; font-weight: bold; margin: 1px 0; padding: 0; border: 0 }
+#layout-containers li.widget { cursor: move }
+#widgets li.widget h4,
+#layout-containers li.widget h4 { background: #fff; font-size: 100%; padding: 5px; margin: 0 0 0 15px; border: 1px solid #ccc; cursor: default; }
+#layout-containers li.widget.selected { background: #08e; border-color: #08e }
+#layout-containers li.widget.selected h4 { border-color: #08e }
+
+ol#layout-containers {  margin: auto }
+#available-widgets { padding: 30px 14px 0 0;  }
+
+#widgets li { position: relative }
+#layout-containers li a,
+#widgets li a { position: absolute; right: 5px; top: 6px; font-size: 80%; text-decoration: underline }
+#layout-containers li a { color: #e7208a }
+#widget-properties-wrapper { padding: 20px; border: 1px solid #ccc;  }
+#widget-properties-wrapper h3 { margin: 0 }
+#widget-properties { background: #fff; min-height: 100px }
+#footnote { padding: 10px 0 20px; color: #000 }
+/* ]]> */
+</style>
+
+{% endblock %}
+{% block pre-content %}
+	<form id="main-form" method="POST">
+		{% endblock %}{% block post-content %}
+	</form>
+{% endblock %}
+{% block aside %}
+
+	<div id="form-properties">
+		{% include "common/form.html" %}
+	</div>
+
+
+	{% block submit-field %}
+	<div class="field submit">
+		<div class="input">
+			<button id="btn-submit" class="positive button" type="submit">{% trans "Save" %}</button>
+		</div>
+	</div>
+	{% endblock %}		
+	
+
+	<div id="available-widgets">
+		<ul id="widgets">
+		{% for widget_name in widget_names %}
+			<li class="widget">
+				<h4>{{ widget_name }}</h4>
+				<a href="#">{% trans "Add" %}</a>
+			</li>
+		{% endfor %}
+			<div style="clear:both"></div>
+		</ul>
+	</div>	
+{% endblock %}
+{% block article %}
+	{% include "common/form-error.html" %}
+	
+	<ol id="layout-containers">
+		<li id="layout-header-wrapper">
+			<h2>{% trans "Header" %}</h2>
+			<ul id="layout-header">
+			</ul>
+		</li>
+		<li id="layout-content-wrapper">
+			<h2>{% trans "Content" %}</h2>
+			<ol>
+				<li id="layout-nav-wrapper">
+					<h3>{% trans "Navigation" %}</h3>
+					<ul id="layout-nav"></ul>
+				</li>
+				<li id="layout-section-wrapper">
+					<h3>{% trans "Section" %}</h3>
+					<ol id="layout-section">
+						<li id="layout-intro-wrapper">
+							<h4>{% trans "Introduction" %}</h4>
+							<ul id="layout-intro"></ul>
+						</li>
+						<li id="layout-article-wrapper">
+							<h4>{% trans "Article" %}</h4>
+							<ul id="layout-article"></ul>
+						</li>
+						<li id="layout-footnote-wrapper">
+							<h4>{% trans "Footnote" %}</h4>
+							<ul id="layout-footnote"></ul>
+						</li>
+					</ol>
+				</li>
+				<li id="layout-aside-wrapper">
+					<h3>{% trans "Aside" %}</h3>
+					<ul id="layout-aside"></ul>
+				</li>
+			</ol>
+		</li>
+		<li id="layout-footer-wrapper">
+			<h2>{% trans "Footer" %}</h2>
+			<ul id="layout-footer"></ul>
+		</li>
+	</ol>
+	<div id="widget-properties-wrapper">
+		<h3>{% trans "Widget Properties" %}</h3>	
+		<div id="widget-properties" class="padding: 20px">
+			<div style="text-align:center; padding: 50px">
+				<em>{% trans "No widget selected" %}</em>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+var publisher = {
+	'views': {
+		'api_widget_form': '{% url publisher.views.api_widget_form %}'
+	} 
+};
+// ]]>
+</script>
+<script src="{{ MEDIA_URL }}hibird/scriptaculous-hibird.min.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL }}publisher/edit-layout.min.js" type="text/javascript"></script>
+
+{% endblock %}
+

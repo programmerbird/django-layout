@@ -1,0 +1,97 @@
+{% load i18n %}
+{% load page_tags %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+	{% spaceless %}
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>{% block title %}{{ entity }}{% endblock %} - {% block site-name %}{% endblock %}</title>
+	{% block additional-meta %}{% endblock %}
+	{% block javascript %}
+		<script src="{{ MEDIA_URL }}hibird/scriptaculous-hibird.min.js" type="text/javascript"></script>
+	{% block additional-javascript %}{% endblock %}
+	{% endblock %}
+	{% block stylesheet %}
+		<link rel="stylesheet" href="{{ MEDIA_URL }}page/simple.min.css" />
+		{% block additional-stylesheet %}{% endblock %}
+		<!--[if lt IE 8]><script src="{{ MEDIA_URL }}page/IE8.js" type="text/javascript"></script><![endif]-->
+	{% endblock %}
+	{% endspaceless %}
+</head>
+<body class="{% now "\y\e\a\r-Y \m\o\n\t\h-m \d\a\y-d \h\o\u\r-H \m\i\n\u\te-i \d\a\y\o\f\w\e\e\k-l" %}">
+	<div id="info" {% if not request.GET.info %}style="display:none"{% endif %}>{{ request.GET.info }}{% if request.GET.ask %} <a class="ask" href="{{ request.GET.ask_url }}">{{ request.GET.ask }}</a>{% endif %}</div>
+	<div id="page-wrapper">
+	{% block pre-page %}{% endblock %}
+	<div id="page" class="{% block page-id %}{% endblock %}">
+		<div id="header-wrapper">
+			<div id="header">
+				{% block header %}{% endblock %}
+				{% container header %}
+				{% block after-header %}{% endblock %}
+			</div>
+		</div>
+		{% block pre-content %}{% endblock %}
+		<div id="content-wrapper">
+			<div id="content">
+				<div id="nav-wrapper">
+					<div id="nav">
+						{% block nav %}{% endblock %}
+						{% container nav %}
+						{% block after-nav %}{% endblock %}
+					</div>
+				</div>
+				<div id="subnav-wrapper">
+					<div id="subnav">
+						{% block subnav %}{% endblock %}
+						{% container subnav %}
+						{% block after-subnav %}{% endblock %}
+					</div>
+				</div>
+				<div id="section-wrapper">
+					<div id="section">
+						<div id="intro-wrapper">
+							<div id="intro">
+								{% block intro %}{% endblock %}
+								{% container intro %}
+								{% block after-intro %}{% endblock %}
+							</div>
+						</div>
+						<div id="article-wrapper">
+							<div id="article">
+								{% block article %}{% endblock %}
+								{% container article %}
+								{% block after-article %}{% endblock %}
+							</div>
+						</div>
+						<div id="footnote-wrapper">
+							<div id="footnote">
+								{% block footnote %}{% endblock %}
+								{% container footnote %}
+								{% block after-footnote %}{% endblock %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="aside-wrapper">
+					<div id="aside">
+						{% block aside %}{% endblock %}
+						{% container aside %}
+						{% block after-aside %}{% endblock %}
+					</div>
+				</div>
+			</div>
+		</div>
+		{% block post-content %}{% endblock %}
+		<div id="footer-wrapper">
+			<div id="footer">
+				{% block footer %}{% endblock %}
+				{% container footer %}
+				{% block after-footer %}{% endblock %}
+			</div>
+		</div>
+	</div>
+	{% block post-page %}{% endblock %}
+	</div>
+</body>
+</html>

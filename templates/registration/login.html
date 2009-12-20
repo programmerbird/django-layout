@@ -1,0 +1,29 @@
+{% extends "registration/base.html" %}
+{% load hibird %}{% layout login %}
+{% load i18n %}
+{% block title %}{% trans "Sign in" %}{% endblock %}
+{% block intro %}
+<h1>{% trans "Sign in" %}</h1>
+{% endblock %}
+{% block page-id %}login{% endblock %}
+{% block article %}
+<p>
+	{% trans "We'are happy to see you return! Please log in to continue" %}
+</p>
+<form method="post" action="?next={{ next|default:"/" }}">
+	{% include "common/form-error.html" %}
+	<div class="inline">
+		{% with form.username as field %}{% include "common/field.html" %}{% endwith %}
+		{% with form.password as field %}{% include "common/field.html" %}{% endwith %}
+	</div>
+	<div class="field submit">
+		
+		<div class="input">
+			<button type="submit" class="big positive button">{% trans "Log in" %}</button>
+			<a href="{% url auth_password_reset %}">{% trans "Forgot password?" %}</a>
+		</div>
+	</div>
+</form>
+{% endblock %}
+
+

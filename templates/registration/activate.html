@@ -1,0 +1,13 @@
+{% extends "registration/base.html" %}
+
+{% load i18n %}
+{% block menu %}
+{% endblock %}
+{% block content-header %}
+Activate Your Account
+{% endblock %}
+{% block content-body %}
+Hello {{ account }}
+Check your email to confirm the activation. There are {{ expiration_days }} days left to do it
+{% endblock %}
+

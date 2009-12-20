@@ -1,0 +1,11 @@
+{% extends "flatpages/base.html" %}
+{% load hibird %}
+{% load page_tags %}
+{% layout =flatpage.title %}
+{% setentity flatpage %}
+{% block title %}{{ flatpage.title }}{% endblock %}
+{% block intro %}{% endblock %}
+{% block article %}
+	{{ flatpage.content|parse_text }}
+{% endblock %}
+

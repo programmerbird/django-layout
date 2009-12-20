@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+	<link rel="stylesheet" href="../page/element.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+</head>
+<body>
+	<div id="info"><div>Hello world <a class="ask" href="#">Yeah?</a></div></div>
+
+	<form action="" method="get">
+		<div class="field">
+			<label for="a">AAA</label>
+			<div class="input">
+			<input type="text" name="a"/>
+			</div>
+		</div>
+		<div class="field">
+			<label for="b">BBB</label>
+			<div class="input">
+			<input type="text" name="b" value="test b" />
+			</div>
+		</div>
+		<div class="field">
+			<label for="c">CCC</label>
+			<div class="input">
+			<input type="text" name="c" />
+			</div>
+		</div>
+		<p><input type="submit" value="Continue &rarr;" /></p>
+	</form>
+	
+	
+	
+	<form action="http://localhost:8000/#do=:submit|reset|save_ok" method="GET" class="inline ajax on-submit-action">
+		<div class="field">
+			<label for="a">AAA</label>
+			<div class="input">
+			<input type="text" name="a"/>
+			</div>
+		</div>
+		<div class="field">
+			<label for="b">BBB</label>
+			<div class="input">
+			<input type="text" name="b" value="test b" />
+			</div>
+		</div>
+		<div class="field">
+			<label for="c">CCC</label>
+			<div class="input">
+			<input type="text" name="c" />
+			</div>
+		</div>
+		<button type="submit">Submit</button>
+		<button type="submit" name="save" value="draft#do=:submit|form:reset" class="ajax on-click-value">Draft</button>
+	</form>
+	
+	<script src="browser.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+	<script src="../prototype/prototype.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+	<script src="../scriptaculous/builder.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+	<script src="../scriptaculous/effects.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+	<script src="../scriptaculous/dragdrop.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+	<script src="../scriptaculous/controls.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+	<script src="scriptaculous.hibird.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+	<script src="scriptaculous.notifier.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+	<script src="../expandable-textarea/textarea.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+	<script src="scriptaculous.scripty.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+	
+	<script type="text/javascript" language="javascript" charset="utf-8">
+	// <![CDATA[
+	//	hibird.notify('Hello world', {kind:'error'});
+	// ]]>
+	</script>
+
+</body>
+</html>

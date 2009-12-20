@@ -1,0 +1,10 @@
+{% extends "hibird.html" %}
+{% load i18n %}
+{% load hibird %}
+{% block site-name %}{% trans "Test Site" %}{% endblock %}
+{% block title %}{% trans "Welcome" %}{% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ MEDIA_URL }}page/simple.min.css" />
+{% block additional-stylesheet %}{% endblock %}
+<!--[if lt IE 8]><script src="{{ MEDIA_URL }}page/IE8.js" type="text/javascript"></script><![endif]-->
+{% endblock %}

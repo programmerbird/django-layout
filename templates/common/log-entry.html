@@ -1,0 +1,41 @@
+<div class="log">
+	<div class="created_on">
+		{% ifchanged created_on.date %}
+		<div class="date">
+			<abbr title="{{ archiver.updated_on|date:"M d, Y @ g:i A" }}">
+				{% ifnotequal created_on.today.year created_on.year %}
+					<em class="weekday">{{ created_on|date:"l" }}</em>
+					{{ created_on|date:"M d" }}
+				{% else %}
+					<em class="year">{{ created_on|date:"Y" }}</em>
+					{{ created_on|date:"M d" }}
+				{% endifnotequal %}
+			</abbr>
+		</div>
+		{% else %}
+		<div class="time">
+			<abbr title="{{ created_on|date:"M d, Y @ g:i A" }}">
+			{{ created_on|date:"g:i A" }}
+			</abbr>
+		</div>
+		{% endifchanged %}
+	</div>
+	<div class="primary">
+		<div class="comment">
+		{% autoescape off %}
+			{{ comment }}
+		{% endautoescape %}
+		</div>
+		<div class="meta">
+			<a href="{{ owner.get_absolute_url }}">
+				{% if owner.get_full_name %}
+					{{ owner.get_full_name }}
+				{% else %}
+					{{ owner }}
+				{% endif %}
+			</a>
+		</div>
+	</div>
+	<div style="clear:both"></div>
+</div>
+

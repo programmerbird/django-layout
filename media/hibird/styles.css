@@ -1,0 +1,225 @@
+
+body div#page { font-family: helvetica, arial; font-size: 120% }
+a { border-bottom: 1px solid transparent; }
+a:link { color: #08e;  text-decoration: none; }
+a:visited { color: #08e; text-decoration: none; }
+a:active { color: #08e; }
+a:hover { text-decoration: underline;  }
+a.external { background: transparent url(/media/hibird/external.png) no-repeat scroll right center; padding-right: 13px }
+img { border-width:0; }
+abbr { border: 0 }
+
+div#logger{ position: fixed; top: 50px; right: 20px; color: white; background-color: #333; text-align: left; z-index: 100000; width: 250px; height: 80% ; padding: 10px 10px 40px ; font-size: 90%; font-family: helvetica, arial; font-weight: bold; cursor: default; overflow: auto; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+div#logger #btn_clear_log { position: fixed; top: 60px; right: 30px }
+div#logger ul { margin: 0; padding: 0; list-style: none }
+div#logger .error { color: #dc0063; }
+div#logger .warn { color: #f90; }
+div#logger .info { color: #09f; }
+div#info { vertical-align: middle; color: white; background-color: #f93; text-align: center; z-index: 100000; padding: 0; font-size: 120%; font-weight: bold }
+div#info div { padding: 8px }
+div#info a.ask { color: #000 }
+
+.javascript-only{ display: none; }
+html #edit-toggle { display: none; }
+html.js #edit-toggle { display: block }
+html.js a#edit-toggle { display: inline }
+html.js .javascript-hide { display: none }
+html.js .edit-tools { display: none }
+html.js .js-edit-tools { }
+
+.disabled { color: #999 } 
+img.disabled, .disabled img { opacity: 0.5; filter:alpha(opacity=50) }
+/* forms */
+ul, ol { margin: 0 }
+.field{ padding: 5px 15px;}
+.field label{ font-weight: bold; color: #333; font-size: 85% }
+.input { vertical-align: top; }
+#menu .input select{ width: 100% } 
+.input input{ font-size: 120%; }
+.input textarea{font-size: 100%;  }
+html.gecko .input select { padding: 1px }
+.input-text-bg {  background:#FFFFFF url(/media/hibird/bg-field.gif) repeat-x scroll center top; }
+.input textarea,
+.input select,
+.input input[type=text],  
+.input input[type=password] { width: 100%; vertical-align: top; background:#FFFFFF url(/media/hibird/bg-field.gif) repeat-x scroll center top; border-color:#7C7C7C #C3C3C3 #DDDDDD; border-style:solid; border-width:1px; color: #333; }
+.input textarea { width: 100% }
+.input input[type=text],  
+.input input[type=password] { width: 100%; max-width: 370px}
+.input select{ width: 100%; max-width: 370px;}
+.limit { float: left; }
+.limit .input input[type=text],  
+.limit .input input[type=password] { max-width: 2400px}
+.limit .input select{ max-width: 2400px;}
+.input input.disabled { background: #09f; color: #666 }
+.field .help_text { font-size: 80% }
+.errors { background-color: #dc0063; color: #fff; padding: 15px; } 
+.errors h4 { color: #fff; margin: 0; font-size: 110%; }   
+.errors p { margin: 5px 0 0 0; font-size: 80%}   
+.field.error label { color: #dc0063 }   
+.field.error .errors { margin: 0; padding: 0; list-style: none; color: #dc0063; background: transparent }
+.field.error { background-color: #fcc }   
+fieldset { border: 0; border-top: 1px dotted #ccc; text-align: left; padding: 10px 0 ; margin: 0 0 5px}
+fieldset h1, 
+fieldset h2,
+fieldset h3 { padding: 0 15px }
+fieldset p { margin: 3px 0; font-size: 80% }
+fieldset:first-child { border-top: 0 }
+.field .asterisk { display:inline; color: #900; font-weight: bold }
+
+div.grippie { background:#EEEEEE url(/media/hibird/grippie.png) no-repeat scroll center 2px; border-color:#DDDDDD; border-style:solid; border-width:0pt 1px 1px; cursor:s-resize; height:9px; overflow:hidden; }
+.resizable-textarea textarea { display:block; margin-bottom:0pt; width:100%; height:20%; }
+.giant { font-size: 150% }
+
+.field.submit,
+fieldset.submit { background: #eee; margin: 0; padding: 0; border-top: 0;  }
+.field.submit { padding: 20px 15px; border-top: 2px solid #ddd}
+fieldset.submit .field.submit { margin-top: 0 }
+.submit .legend,
+.field.submit label{ vertical-align: top; display: none}
+
+.buttons a, .buttons button, a.button, button {font-family:"Lucida Grande", Tahoma, Arial, sans-serif;float:left;margin:0 .7em 0 0;text-decoration:none;background-color:#f5f5f5;border:1px solid #dedede;border-right:1px solid #bbb;border-bottom:1px solid #BFBFBF;padding:5px 10px 6px 10px;display:block;cursor:pointer;font-size:100%;line-height:130%;color:#336699;font-weight:bold;-webkit-border-radius:12px;-moz-border-radius:12px;}
+a.button, button.button{float:none;display:inline;display:inline-block;}
+.buttons button, button.button{width:auto;overflow:visible;font-weight:bold;padding:4px 10px 3px 7px; }
+.buttons button[type], button.button[type]{width:auto;padding:5px 10px 5px 7px; line-height:17px; }
+*:first-child+html .buttons button[type], *:first-child+html button.button[type]{padding:4px 10px 3px 7px; margin-bottom:1px;}
+* html button.button{margin-bottom:1px;}
+.buttons button img, .buttons a img, a.button img, button.button img{margin:0 3px -3px 0 !important;}
+.buttons button:hover, .buttons a:hover, a.button:hover, button.button:hover{background-color:#dff4ff;border:1px solid #A7CEDF;color:#336699;}
+.buttons a:active, a.button:active{background-color:#6299c5;border:1px solid #6299c5;color:#fff;}
+button.positive, a.positive{color:#529214;}
+a.positive:hover, button.positive:hover{background-color:#E9EFD1;border:1px solid #AACF81;color:#529214;}
+a.positive:active{background-color:#529214;border:1px solid #529214;color:#fff;}
+a.negative, button.negative{color:#d12f19;}
+a.negative:hover, button.negative:hover{background:#fbe3e4;border:1px solid #EF959B;color:#d12f19;}
+a.negative:active{background-color:#d12f19;border:1px solid #d12f19;color:#fff;}
+.buttons a em, .buttons button em, a.button em{font-weight:normal;font-style:normal;}
+.info .buttons{float:right;margin:5px 0 0 0;padding:0;}
+.info .buttons a, .info .buttons button{margin:0 0 0 .7em;}
+
+dl { margin: 5px 0 }
+dd { margin: 0 }
+code { font-size: 90% }
+
+/* table */
+table { font-size: 90%; border-collapse: collapse }
+th { padding: 5px 10px; border-bottom: 1px solid #ccc; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #eee; vertical-align: top} 
+
+/* structures */
+#header-wrapper, #body-wrapper, #footer-wrapper{ text-align: center; clear: both }
+#shortcuts-wrapper { text-align: left; height: 32px; padding-top: 12px; padding-left: 250px }
+#header, #body, #footer { min-width: 960px; margin: auto; text-align: left } 
+#header #account { float: right; }
+#header #logo { float: left; display: inline; }
+
+/* style */
+body { margin: 0; background: #ddd; }
+#page-wrapper { background:  url(/media/hibird/bg-x-dark.png) repeat-x }
+
+
+
+#header { padding: 8px 10px 2px 10px ; font-size: 90%; color: #eee; }
+#header a { color: #eee }
+#header #account { padding-top: 3px }
+#header #account li { border-left: 1px solid #333; padding-left: 0.5em }
+
+#header #account li.user { border-left: 0; padding-left: 0 }
+#header #account a { color: #fee; font-weight: bold }
+#header #account li.user a { color: #eee; font-weight: normal }
+#header .logo { font-size: 145%; }
+#shortcuts a { color: #eee }
+#shortcuts-wrapper { }
+#shortcuts ul.nl li { padding: 6px 12px 4px 12px; font-size: 120%; border: none; height: 30px; margin: 0 }
+#shortcuts ul.nl li.selected { background: #ddd;  color: #333; padding-bottom: 10px; font-weight: bold; }
+#shortcuts ul.nl li.selected a { color: #333; }
+#sub-shortcuts-wrapper { background: #ddd; padding-top: 7px; text-align: left; }
+
+
+#sub-shortcuts { margin: auto;  }
+#sub-shortcuts li { padding: 4px 15px;  }
+#sub-shortcuts li.selected { font-weight: bold; background: #aaa; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+#sub-shortcuts li a { color: #333; }
+#body-wrapper { background: #ddd; min-height: 500px; padding: 10px }
+#content-wrapper { margin-right: 300px; background: #ddd url(/media/hibird/bg-x-shadow.png) repeat-x right bottom ; padding-bottom: 5px; }
+#menu-wrapper { float: right; width: 300px; }
+#menu { padding: 0; width: 300px; font-size: 85%; position: absolute; }
+#menu .block { background: #ccc; color: #eee; padding: 10px; margin: 0 0 15px 0; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+#menu .sub-block { margin: 0 0 15px 0; padding: 0 10px }
+
+#menu h2 { font-size: 110%; margin: 0; }
+#menu ul { padding: 0; padding-left: 15px; margin: 0; }
+.controls { padding: 10px; background: #eee }
+#content-header-wrapper,
+#content-body-wrapper, 
+#content-footer-wrapper { padding-right: 5px; background: #ddd url(/media/hibird/bg-y-shadow.png) repeat-y top right; }
+#content-header { padding: 10px 15px; background: #eee; font-weight: bold;}
+#content-header ul.tabs a{ font-weight: bold; font-size: 100%; text-decoration: none; color: #000; }
+.meta { font-weight: normal; font-size: 90% }
+.meta a { font-weight: bold; }
+#content-header ul.tabs li {  height: 19px; padding: 8px 10px 2px; display: inline-block; }
+#content-header ul.tabs li.selected { font-weight: bold; background: #fff; }
+#content-body { padding: 0; background: #fff; }
+#content-body strong { color: #000 }
+#content-body .field .meta-wrapper { margin: 0 -55% 0 0; float: right; width: 55%; }
+#content-body .field .meta { padding: 0 }
+#content-body .field .meta.checkbox { padding-left: 25px }
+div.text { padding: 10px 15px }
+div.gravatar { float: left; margin: 1px }
+.description, .comment { font-size: 90% }
+.primary { padding: 0 }
+h1 { margin: 0.1em 0; padding: 0; font-size: 130% }
+h2 { margin: 0.1em 0; padding: 0; font-size: 110% }
+h3 { margin: 0; padding: 0; font-size: 90% }
+.log { clear: left; padding: 8px 0; border-bottom: 1px solid #333; }
+.log .weekday { display: block }
+.log .year { display: block }
+.log .created_on { float: left; width: 80px; font-size: 70%; text-align: center }
+.log .date { background: #eee; padding: 5px; font-size: 130%; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
+.log .date .year { font-size: 80%; font-style: normal; font-weight: bold }
+.log .date .weekday { font-size: 80%; font-style: normal; font-weight: bold }
+.log .primary { padding: 0 6px; float: left; font-size: 95%; }
+.log ul { margin: 0; padding: 0; list-style: none }
+.log li { margin: 0; padding: 0 }
+.log em { font-style: normal; font-weight: bold; color: #666 }
+.gravatar { margin-right: 5px }
+
+.date-block { font-size: 100%; background: #eee; padding: 5px; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; text-align: center; }
+.date-block .year { font-size: 80%; display: block; font-style: normal; font-weight: bold }
+.date-block .weekday { font-size: 80%; display: block; font-style: normal; font-weight: bold }
+.time-block { font-size: 90%; padding: 5px; text-align: center }
+
+/* elements */
+ul.nl { display: inline; padding: 0; margin: 0 }
+ul.nl li { display: inline; margin: 0 0.5em 0 0 }
+
+ol.nl { padding: 0; margin: 0; list-style: none }
+table.items { width: 100% }
+table.items .id { width: 30px; text-align: center }
+table.items .gravatar { width: 50px; text-align: center }
+table.items .tools { width: 120px }
+
+table.vertical th { border-bottom: 1px solid #eee; text-align: right }
+
+/* paginator */
+.paginator { padding: 1em 0; font-size: 90%; text-align: center }
+.paginator .prev a,
+.paginator .prev:visited a,
+.paginator .next a,
+.paginator .next:visited a{ padding:.3em; }
+.paginator .page.disabled,
+.paginator .page.current,
+.paginator .page a {display: inline-block; min-width: 18px; text-align: center; padding: .25em; background-color: #fff; margin: 0em .25em; color: #08e; }
+.paginator span.page.prev a{ padding-right:.5em; width: auto; }
+.paginator span.page.next a{ padding-left:.5em; width: auto; }
+.paginator .page:hover a{ color:#333; text-decoration: none; border: 1px solid #aaa }
+.paginator .page.current { border: 1px solid #999; color: #666; font-weight: bold }
+.paginator .page.disabled { color:#999; background-color: #fff; text-decoration: none; }
+
+div.autocomplete {margin:0px; padding:0px; background: #eee; position:absolute; z-index: 100000; }
+div.autocomplete ul { margin:0px; padding:0px; list-style-type:none;}
+div.autocomplete ul li.selected { background-color: #0063DC; color: #fff; border:1px solid #fff; border-top: 0;}
+div.autocomplete ul li {margin:0; padding:5px 10px; list-style-type:none; cursor:pointer;}
+
+.input input.unfocus { color: #ccc; font-style: italic }
+

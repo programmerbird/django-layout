@@ -1,0 +1,41 @@
+{% extends "publisher/flatpage/base.html" %}
+{% load hibird %}{% layout new_flatpage %}
+{% load i18n %}
+{% block title %}{% trans "Add flatpage" %}{% endblock %}
+{% block intro %}
+<a href="{% url publisher.views.layouts %}">{% trans "Return to administration" %}</a>
+<h1>{% trans "Add flatpage" %}</h1>
+{% endblock %}
+{% block article %}
+{% partial form %}
+	{% include "common/form-error.html" %}
+	{% with form.content as field %}{% include "common/field.html" %}{% endwith %}
+{% endpartial %}
+{% endblock %}	
+{% block pre-content %}
+<form method="POST" action="{{ request.path }}">
+	{% endblock %}{% block post-content %}
+</form>
+{% endblock %}
+{% block after-aside %}
+	{% with form.url as field %}{% include "common/field.html" %}{% endwith %}
+	{% with form.title as field %}{% include "common/field.html" %}{% endwith %}
+	{% with form.enable_comments as field %}{% include "common/field.html" %}{% endwith %}
+		{% block submit-field %}
+		<div class="field submit">
+			<div class="input">
+				<button class="positive button" type="submit">{% trans "Save Changes" %}</button>
+			</div>
+		</div>
+		{% endblock %}	
+	<fieldset>
+		<h3 class="legend">{% trans "Advanced Options" %}</h3>
+		<div class="fields">
+			{% with form.template_name as field %}{% include "common/field.html" %}{% endwith %}
+			{% with form.sites as field %}{% include "common/field.html" %}{% endwith %}
+			{% with form.registration_required as field %}{% include "common/field.html" %}{% endwith %}
+		</div>
+	</fieldset>
+	
+
+{% endblock %}

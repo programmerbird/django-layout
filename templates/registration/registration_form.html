@@ -1,0 +1,21 @@
+{% extends "registration/base.html" %}
+
+{% load i18n %}
+{% block menu %}
+
+{% endblock %}
+{% block content-header %}
+Registration
+{% endblock %}
+{% block content-body %}
+<form method="post">
+	{% include "common/form.html" %}
+	<div class="field submit">
+		
+		<div class="input">
+			<button type="submit" class="contact-new icon button">Register</button>
+			<a class="button cancel" href="{% url django.contrib.auth.views.login %}">Cancel</a>
+		</div>
+	</div>
+</form>
+{% endblock %}

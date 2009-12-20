@@ -1,0 +1,29 @@
+{% extends "publisher/flatpage/new.html" %}
+{% load hibird %}{% layout edit_flatpage %}
+{% load i18n %}
+{% block title %}{% trans "Edit flatpage" %}: {{ flatpage }}{% endblock %}
+{% block intro %}
+<a href="{% url publisher.views.layouts %}">{% trans "Return to administration" %}</a>
+<div style="float:right">
+	<a href="{% url publisher.views.edit_layout flatpage.title %}" class="small button">{% trans "Layout" %}</a>
+</div>
+<h1>
+	{% trans "Edit flatpage" %}: {{ flatpage }} 
+	<a href="{{ flatpage.url }}" target="_blank" title="{% trans "View on Site" %}" class="external"></a>
+</h1>
+{% endblock %}
+{% block submit-field %}
+<div class="field submit">
+	<div class="input">
+		{% if perms.flatpages.can_remove_flatpage %}
+		<div style="float:right">
+			<a href="{% url publisher.views.remove_flatpage flatpage.id %}" onclick="return confirm('{% trans "Are you sure you want to remove this flatpage?" %}')" 
+				class="negative button">
+				{% trans "Remove" %}</a>
+		</div>
+		{% endif %}	
+		<button class="positive button" type="submit">{% trans "Save Changes" %}</button>
+	</div>
+</div>
+{% endblock %}	
+

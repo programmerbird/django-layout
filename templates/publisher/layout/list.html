@@ -1,0 +1,51 @@
+{% extends "publisher/layout/base.html" %}
+{% load page_tags %}
+{% page layouts %}
+{% load hibird %}
+{% load i18n %}
+{% load gravatar %}
+{% block title %}{% trans "Administration" %}{% endblock %}
+{% block intro %}
+<h1>{% trans "Administration" %}</h1>
+{% endblock %}
+{% block article %}
+	{% if layouts %}
+		<h3>{% trans "Site Layouts" %}</h3>
+		<ul>
+		{% for item in layouts %}
+			<li style="width: 200px; float:left">
+				<a href="{% url publisher.views.edit_layout item.id %}" class="button">{{ item.name }}</a>
+			</li>
+		{% endfor %}
+		</ul>
+		<div style="clear:both"></div>
+	{% endif %}
+	<br />
+
+
+	{% if pages %}
+		<h3>{% trans "Flat Pages" %}</h3>
+		<ul>
+		{% for item in pages %}
+			<li style="width: 200px; float:left">
+				<a href="{% url publisher.views.edit_flatpage item.id %}" class="button">{{ item.title }}</a><br />
+				<a href="{{ item.url }}" class="external" title="{% trans "View on Site" %}" target="_blank">
+					{{ item.url }}</a>
+			</li>
+		{% endfor %}
+		</ul>
+		<div style="clear:both"></div>
+	{% endif %}
+	<br />
+
+{% endblock %}
+{% block aside %}
+
+{% if perms.flatpages.add_flatpage %}
+	<a href="{% url publisher.views.new_flatpage %}" class="positive button">{% trans "Add Flat Page" %}</a>
+{% endif %}
+{% if perms.layout.add_layout %}
+	<a href="{% url publisher.views.new_layout %}" class="positive button">{% trans "Add layout" %}</a>
+{% endif %}<br /><br />
+
+{% endblock %}
