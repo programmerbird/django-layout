@@ -3,7 +3,7 @@
 
 A template widgets system for your existed django project.
 
-[[ screenshot here ]]!
+![Rearrange widgets screenshot](http://github.com/ssimasanti/django-layout/raw/master/doc/edit-page.png)
 
 
 ## Demo
@@ -63,8 +63,7 @@ See publisher/widgets.py for the example.
    By default, you will need: header, nav, subnav, intro, article, footnote, aside, footer.
    see templates/hibird.html for the full example.
 
-				{% load page_tags %}
-		
+				{% load page_tags %}		
 				<html>
 				<body>
 					<div id="header">
@@ -76,6 +75,7 @@ See publisher/widgets.py for the example.
 				</html>	
 
 5. Tell us what the layout name. You will have to set it in every pages you want to see the widgets.
+
 				{% load hibird %}
 				{% layout your_page_name_here %}
 		
