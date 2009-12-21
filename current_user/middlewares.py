@@ -4,7 +4,9 @@ try:
 except ImportError:
 	from django.utils._threading_local import local
 
-import settings 
+from django.conf import settings 
+
+LANGUAGE_CODE = getattr(settings, 'LANGUAGE_CODE')
 
 _thread_locals = local()
 def get_current_user():
@@ -28,5 +30,5 @@ class ThreadLocals(object):
 			request.user.__unicode__ = lambda : r'0'
 		_thread_locals.user = getattr(request, 'user', None)
 		_thread_locals.request = request
-		_thread_locals.language_code = getattr(request, 'LANGUAGE_CODE', settings.LANGUAGE_CODE)
+		_thread_locals.language_code = getattr(request, 'LANGUAGE_CODE', LANGUAGE_CODE)
 

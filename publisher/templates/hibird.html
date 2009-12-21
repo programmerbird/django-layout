@@ -91,9 +91,9 @@
 	{% block post-page %}{% endblock %}
 	</div>
 {% block javascript %}
-<script src="{{ MEDIA_URL }}hibird/scriptaculous-hibird.min.js" type="text/javascript"></script>
-{% block additional-javascript %}{% endblock %}
-{% printjavascript %}
+	<script src="{{ MEDIA_URL }}hibird/jquery-hibird.min.js" type="text/javascript"></script>
+	{% block additional-javascript %}{% endblock %}
+	{% printjavascript %}
 {% endblock %}
 </body>
 </html>

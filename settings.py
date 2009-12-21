@@ -98,6 +98,9 @@ _=lambda (x) : x
 DATABASE_ENGINE = 'sqlite3'
 DATABASE_NAME = os.path.join(os.path.dirname(__file__), 'db/layout.sqlite3')
 
+# [registration]
+INSTALLED_APPS += ('registration',)
+
 # [hibird]
 INSTALLED_APPS += ('hibird',)
 

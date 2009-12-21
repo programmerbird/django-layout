@@ -84,7 +84,6 @@ http://www.youtube.com/watch?v=eIO5Qebk3dI
 	import markdown
 	for x in testcases:
 		x = markdown.markdown(x, safe_mode="escape")
-		print x
 		for pattern, replacement in VIDEO_LINKS:
 			x = pattern.sub(replacement, x)
 		print "---"

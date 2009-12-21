@@ -8,8 +8,7 @@
  *	More info: http://samburney.com/blog/text-area-resizer-prototype-port
  *	Demo: http://stmarys.sifnt.net.au/~sam/textarearesizer/
  *	Original version: http://plugins.jquery.com/project/TextAreaResizer
- */
-
+ */
 function TextAreaResizer(id, options){
 	this.textarea = id;
 	this.staticOffset;

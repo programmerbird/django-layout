@@ -6,7 +6,7 @@ A template widgets system for your existed django project.
 ![Rearrange widgets screenshot](http://github.com/ssimasanti/django-layout/raw/master/doc/edit-base.png)
 
 ## Demo
-			git clone git@github.com:ssimasanti/django-layout.git
+			git clone git://github.com/ssimasanti/django-layout.git
 			cd django-layout
 			python manage.py runserver
 
@@ -14,6 +14,7 @@ Now goto:
 http://localhost:8000/publisher/layout/
 
 Username: admin
+
 Password: admin
 
 
@@ -23,7 +24,7 @@ See publisher/widgets.py for the example.
 ... 
 
 
-## How to integrate into my existed project ?
+## Installation
 
 1. git clone!
 
@@ -35,8 +36,6 @@ See publisher/widgets.py for the example.
    - publisher/
    - media/hibird/
    - media/publisher/
-   - templates/page
-   - templates/publisher
 
 3. Add the following lines into your settings.py 
 
@@ -61,7 +60,19 @@ See publisher/widgets.py for the example.
 					'publisher.widgets',
 				)
 
-4. Add widget containers into your master template file.
+
+4. Add an URL entry to your project's urls.py, for example:
+
+				urlpatterns += patterns('', 
+					(r'^publisher/', include('publisher.urls')), 
+				)
+   
+   
+5. That's it. syncdb, runserver and goto http://localhost:8000/publisher/layout/ !
+
+## Usage 
+
+1. Add widget containers into your master template file.
    By default, you will need: header, nav, subnav, intro, article, footnote, aside, footer.
    see templates/hibird.html for the full example.
 
@@ -76,9 +87,8 @@ See publisher/widgets.py for the example.
 				</body>
 				</html>	
 
-5. Tell us what the layout name. You will have to set it in every pages you want to see the widgets.
+2. Tell us what the layout name. You will have to set it in every pages you want to see the widgets.
 
 				{% load hibird %}
 				{% layout your_page_name_here %}
-		
-6. That's it. syncdb, runserver and goto http://localhost:8000/publisher/layout/ !
+
